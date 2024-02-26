@@ -61,7 +61,7 @@ By maintaining a consistent pattern of Media Query > Colour Scheme > Dynamic Sty
 
 ```
 "scripts": {
-    "dev": "nodemon --watch \"src/**/*.{js,ts,tsx}\" --exec \"npm run prebuild && next dev\"",
+    "dev": "nodemon --watch \"src/**/*.{js,ts,tsx}\" --ignore \"src/styles/tailcomp.js\" --exec \"npm run prebuild && next dev\"",
 }
 ```
 
