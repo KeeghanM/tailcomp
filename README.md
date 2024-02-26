@@ -1,4 +1,10 @@
-# Tailcomp - Tailwind Composer
+<img src="./TailcompLogo.png" alt="Tailcomp" width="200px" height="200px" style="margin-inline: auto;" />
+
+# Tailcomp | The TailwindCSS Composer
+
+![License](https://img.shields.io/github/license/KeeghanM/tailcomp)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/KeeghanM/tailcomp)
+![GitHub last commit](https://img.shields.io/github/last-commit/KeeghanM/tailcomp)
 
 Welcome to Tailcomp, the intuitive TypeScript library designed to make composing Tailwind CSS classes simpler and more efficient. Tailcomp leverages the power of Tailwind CSS, while enabling developers to define their styles in a structured, JavaScript object format. Say goodbye to long, hard-to-read class strings and hello to a cleaner, more organized approach to styling your Next.js projects.
 
@@ -25,6 +31,8 @@ Welcome to Tailcomp, the intuitive TypeScript library designed to make composing
 ```
 
 _Credit to Flowbite for the [card example](https://flowbite.com/docs/components/card/)._
+
+![Mindblown GIF](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTltMzl2NXd4bnA5eWdrNXo3djllemFneGxnNmxwYnUzdWh5Zms2NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lXu72d4iKwqek/giphy.gif)
 
 ## Introduction
 
@@ -70,6 +78,10 @@ By maintaining a consistent pattern of Media Query > Colour Scheme > Dynamic Sty
 
 7. Finally, you can import the `tc` function and start using it in your components!
    1. See the [Basic Usage](#basic-usage) section below for more information
+
+**_You running to try out Tailcomp_**
+
+![Muppets running GIF](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW82NTU4aGZhZHo3aWZxNjBwNGFybWcyMDd6ZGlnOWpmMnVwZHRoOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7kn27lnYSAE9O/giphy.gif)
 
 ## Key Features
 
