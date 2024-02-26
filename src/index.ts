@@ -6,7 +6,7 @@ type StateStyles = {
 }
 
 type ColourStyles = {
-  dark?: StateStyles
+  dark?: StateStyles | string
 }
 
 type MediaStyles = StateStyles & ColourStyles
@@ -45,6 +45,14 @@ export default function tc(classes: TailcompStyles): string {
 
     for (const styleType of getObjectKeys(mediaStyles)) {
       if (styleType === "dark" && mediaStyles.dark) {
+        if (typeof mediaStyles.dark === "string") {
+          classString += ` ${genString(
+            `${mediaPrefix}dark:`,
+            mediaStyles.dark
+          )}`
+          continue
+        }
+
         for (const stateType of getObjectKeys(mediaStyles.dark)) {
           const prefix = genPrefix(stateType)
           const styles = mediaStyles.dark[stateType]
