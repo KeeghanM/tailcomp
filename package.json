@@ -2,9 +2,11 @@
   "name": "tailcomp",
   "version": "0.0.1",
   "description": "An OpenSource library designed to aid development with TailwindCSS by utilising a composed structure.",
-  "main": "\t",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "watch": "tsc --watch"
   },
   "author": "Keeghan McGarry",
   "license": "MIT"
