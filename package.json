@@ -1,0 +1,11 @@
+{
+  "name": "tailcomp",
+  "version": "0.0.1",
+  "description": "An OpenSource library designed to aid development with TailwindCSS by utilising a composed structure.",
+  "main": "\t",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Keeghan McGarry",
+  "license": "MIT"
+}
