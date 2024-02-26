@@ -9,5 +9,12 @@
     "watch": "tsc --watch"
   },
   "author": "Keeghan McGarry",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.20",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "json5": "^2.2.3"
+  }
 }

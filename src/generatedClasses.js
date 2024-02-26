@@ -1,0 +1,1 @@
+export const dummyClass = 'generateClasses.ts', 'generatedClasses.js', 'index.ts';

@@ -36,12 +36,34 @@ By maintaining a consistent pattern of Media Query > Colour Scheme > Dynamic Sty
 - **Efficiency**: Reduce the verbosity of your HTML with the `tc()` function, streamlining your development workflow.
 - **Flexibility**: Tailcomp is designed with extensibility in mind, ready to adapt to future changes in Tailwind CSS and support for other frameworks.
 
-## Planned Functionality
+## Install steps
 
-- Generate Tailwind CSS class strings from JavaScript objects.
-- Support responsive design with minimal syntax.
-- Integrate seamlessly into the Next.js build process.
-- Provide TypeScript typings for auto-completion and type checking.
+### The following steps are for Next.js projects, but can be adapted to other frameworks as well.
+
+1. Ensure you have Tailwind CSS installed in your project already
+2. Install Tailcomp via npm or yarn:
+
+`npm -i tailcomp`
+
+`yarn add tailcomp`
+
+3. Add a prebuild step to your package.json to generate the Tailcomp types:
+
+```
+"scripts": {
+    "prebuild": "node ./node_modules/tailcomp/dist/generateClasses.js",
+}
+```
+
+4. To regenerate the types on the fly in dev mode, change your "dev" script to use nodemon
+
+`npm install --save-dev nodemon`
+
+```
+"scripts": {
+    "dev": "nodemon --watch \"src/**/*.{js,ts,tsx}\" --exec \"npm run prebuild && next dev\"",
+}
+```
 
 ## Get Involved
 

@@ -21,45 +21,39 @@ type TailcompStyles = {
 export default function tc(classes: TailcompStyles): string {
   let classString = ""
 
-  const getStyleTypes = (classes: TailcompStyles) => {
-    return Object.keys(classes) as (keyof TailcompStyles)[]
-  }
+  // A generic function to get object keys with proper typing
+  const getObjectKeys = <T extends Object>(obj: T) =>
+    Object.keys(obj) as Array<keyof T>
 
-  const getMediaTypes = (styles: MediaStyles) => {
-    return Object.keys(styles) as (keyof MediaStyles)[]
-  }
-
-  const getStateTypes = (styles: StateStyles) => {
-    return Object.keys(styles) as (keyof StateStyles)[]
-  }
-
-  const genString = (prefix: string, styles: string) => {
+  // Generate class string with optional prefix (for media, state, and color scheme)
+  const genString = (prefix: string, styles: string | undefined) => {
+    if (!styles) return "" // Guard clause for undefined styles
     return styles
       .split(" ")
       .map((c) => `${prefix}${c}`)
       .join(" ")
   }
 
-  const statePrefix = (stateType: keyof StateStyles) =>
-    stateType === "static" ? "" : `${stateType}:`
+  const genPrefix = (type: keyof StateStyles | "dark") =>
+    `${type === "static" ? "" : `${type}:`}`
 
-  for (const mediaType of getStyleTypes(classes)) {
+  for (const mediaType of getObjectKeys(classes)) {
+    const mediaStyles = classes[mediaType]
+    if (!mediaStyles) continue
+
     const mediaPrefix = mediaType === "base" ? "" : `${mediaType}:`
-    const mediaStyles = classes[mediaType]!
-    for (const stateType of getMediaTypes(mediaStyles)) {
-      classString += " "
-      if (stateType === "dark") {
-        const darkStyles = mediaStyles[stateType]!
-        for (const stateType of getStateTypes(darkStyles)) {
-          classString += " "
-          const prefix = statePrefix(stateType)
-          const styles = darkStyles[stateType]!
-          classString += genString(`${mediaPrefix}dark:${prefix}`, styles)
+
+    for (const styleType of getObjectKeys(mediaStyles)) {
+      if (styleType === "dark" && mediaStyles.dark) {
+        for (const stateType of getObjectKeys(mediaStyles.dark)) {
+          const prefix = genPrefix(stateType)
+          const styles = mediaStyles.dark[stateType]
+          classString += ` ${genString(`${mediaPrefix}dark:${prefix}`, styles)}`
         }
       } else {
-        const prefix = statePrefix(stateType)
-        const styles = mediaStyles[stateType]!
-        classString += genString(`${mediaPrefix}${prefix}`, styles)
+        const prefix = genPrefix(styleType)
+        const styles = mediaStyles[styleType as keyof StateStyles]
+        classString += ` ${genString(`${mediaPrefix}${prefix}`, styles)}`
       }
     }
   }
