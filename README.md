@@ -10,11 +10,13 @@ Welcome to Tailcomp, the intuitive TypeScript library designed to make composing
 
 **_This_**
 
-`<div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">/* ... */</div>`
+```javascript
+<div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">/* ... */</div>
+```
 
 **_Becomes_**
 
-```
+```javascript
 <div className={tc({
     base: {
         static: "flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow",
@@ -110,7 +112,7 @@ Beneath these you use the following keys to define the classes you want to apply
 - `dark`: The classes that will be applied when the dark mode is active
   - `dark` is a special key that can be used to define classes that will be applied when the dark mode is active. You can nest `static`, `hover`, `active`, and `focus` keys beneath it to define the classes you want to apply at each state. Or, define `dark` as a string if there are no specific dynamic + dark styles.
 
-```
+```javascript
 
 // Import the tc function
 import tc from "tailcomp";
