@@ -1,8 +1,25 @@
 type StateStyles = {
   static: string
   hover?: string
-  active?: string
   focus?: string
+  active?: string
+  visited?: string
+  target?: string
+  first?: string
+  last?: string
+  only?: string
+  odd?: string
+  even?: string
+  empty?: string
+  disabled?: string
+  enabled?: string
+  checked?: string
+  indeterminate?: string
+  default?: string
+  required?: string
+  valid?: string
+  invalid?: string
+  autofill?: string
 }
 
 type ColourStyles = {
@@ -16,6 +33,8 @@ type TailcompStyles = {
   sm?: MediaStyles
   md?: MediaStyles
   lg?: MediaStyles
+  xl?: MediaStyles
+  2xl?: MediaStyles
 }
 
 export default function tc(classes: TailcompStyles): string {
