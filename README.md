@@ -6,7 +6,7 @@
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/KeeghanM/tailcomp)
 ![GitHub last commit](https://img.shields.io/github/last-commit/KeeghanM/tailcomp)
 
-Welcome to Tailcomp, the intuitive TypeScript library designed to make composing Tailwind CSS classes simpler and more efficient. Tailcomp leverages the power of Tailwind CSS, while enabling developers to define their styles in a structured, JavaScript object format. Say goodbye to long, hard-to-read class strings and hello to a cleaner, more organized approach to styling your Next.js projects.
+Welcome to Tailcomp, the intuitive TypeScript library designed to make composing Tailwind CSS classes simpler and more efficient. Tailcomp leverages the power of Tailwind CSS, while enabling developers to define their styles in a structured, JavaScript object format. Say goodbye to long, hard-to-read class strings and hello to a cleaner, more organized approach to styling your projects - all with TypeScript powered AutoComplete!
 
 **_This_**
 
@@ -87,10 +87,10 @@ By maintaining a consistent pattern of Media Query > Colour Scheme > Dynamic Sty
 
 ## Key Features
 
-1. **Intuitive API**: Tailcomp's API is designed to be simple and easy to use, with a focus on clarity and readability.
-2. **Utilises Tailwind CSS**: Tailcomp is built as an extension of Tailwind CSS, so you can continue to use all of Tailwind's utility classes inside Tailcomp.
-3. **PreBuild Step**: Tailcomp uses a prebuild step to generate all the Tailwind classes so that TailwindCSS can _do it's thang_ and tree-shake the unused classes.
-4. **TypeScript Support**: Tailcomp is written in TypeScript and comes with its own types, so you can enjoy the benefits of static typing and autocompletion.
+1. **TypeScript Support**: Tailcomp is written in TypeScript and comes with its own types, so you can enjoy the benefits of static typing and autocompletion.
+2. **Intuitive API**: Tailcomp's API is designed to be simple and easy to use, with a focus on clarity and readability.
+3. **Utilises Tailwind CSS**: Tailcomp is built as an extension of Tailwind CSS, so you can continue to use all of Tailwind's utility classes inside Tailcomp.
+4. **PreBuild Step**: Tailcomp uses a prebuild step to generate all the Tailwind classes so that TailwindCSS can _do it's thang_ and tree-shake the unused classes.
 
 ## Basic Usage
 
@@ -99,18 +99,23 @@ As shown in the example above, you can use the `tc()` function to compose your T
 You have access to the following breakpoints at the top level:
 
 - `base`: The base classes that will be applied to all breakpoints
-- `sm`: The small breakpoint
-- `md`: The medium breakpoint
-- `lg`: The large breakpoint
+- `sm`: The small breakpoint `@media (min-width: 640px) { ... }`
+- `md`: The medium breakpoint `@media (min-width: 768px) { ... }`
+- `lg`: The large breakpoint `@media (min-width: 1024px) { ... }`
+- `xl`: The XL breakpoint `@media (min-width: 1280px) { ... }`
+- `2xl`: The 2XL breakpoint `@media (min-width: 1536px) { ... }`
 
-Beneath these you use the following keys to define the classes you want to apply:
+Beneath these you can use any of the psuedo-classes, some examples of these are:
 
-- `static`: The classes that will be applied statically
+- `static`: The classes that will be applied by default
 - `hover`: The classes that will be applied on hover
 - `active`: The classes that will be applied on active
 - `focus`: The classes that will be applied on focus
+
+For a full list, see TailWinds [pseudo-class reference](https://tailwindcss.com/docs/hover-focus-and-other-states#pseudo-class-reference)
+
 - `dark`: The classes that will be applied when the dark mode is active
-  - `dark` is a special key that can be used to define classes that will be applied when the dark mode is active. You can nest `static`, `hover`, `active`, and `focus` keys beneath it to define the classes you want to apply at each state. Or, define `dark` as a string if there are no specific dynamic + dark styles.
+  - `dark` is a special key that can be used to define classes that will be applied when the dark mode is active. You can nest `static`, `hover`, `active` etc. keys beneath it to define the classes you want to apply at each state. Or, define `dark` as a string if there are no specific dynamic + dark styles.
 
 ```javascript
 
